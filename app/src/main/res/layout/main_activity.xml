@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_LAY_relativWrapper"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/main_LAY_top1title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        android:background="#9e9e9e">
+
+        <ImageView
+            android:id="@+id/main_IMG_titlepaw"
+            android:src="@drawable/img_icon_pow"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/login_LAY_linearlistdogs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/colorprimarydark">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/login_LAY_linearbody"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:orientation="vertical"
+        android:background="@color/colorprimary">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/login_LAY_linearlbuttos"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="@color/colorprimarylight">
+
+        <Button
+            android:id="@+id/main_BTN_left"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            android:text="Delete dog"
+             />
+
+        <Button
+            android:id="@+id/main_BTN_center"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="Add new dog"
+             />
+
+        <Button
+            android:id="@+id/main_BTN_right"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:text="Share dog"
+             />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
