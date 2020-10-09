@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Share_Activity"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/share_LAY_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:orientation="horizontal"
+        android:background="@color/colorprimarydark"
+        >
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/share_LAY_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        android:orientation="horizontal"
+        android:background="#cfcfcf">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/share_LAY_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:orientation="horizontal"
+        android:background="#cfcfcf">
+
+        <Button
+            android:id="@+id/createnewdog_BTN_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="SHARE"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:background="@color/colorsecondary">
+
+        </Button>
+
+    </LinearLayout>
+
+
+</LinearLayout>

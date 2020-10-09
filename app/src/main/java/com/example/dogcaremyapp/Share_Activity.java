@@ -1,7 +1,5 @@
 package com.example.dogcaremyapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,9 +7,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-public class Login_Activity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    private Button login_BTN_loginregister;
+public class Share_Activity extends AppCompatActivity {
+
+    private Button createnewdog_BTN_share;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,29 +23,25 @@ public class Login_Activity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
 
-        setContentView(R.layout.login_activity);
+        setContentView(R.layout.share_activity);
 
         findViews();
 
-        login_BTN_loginregister.setOnClickListener(new View.OnClickListener() {
+        createnewdog_BTN_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                launchActivity(CreateNewDog_Activity.class);
+                launchActivity(Main_Activity.class);
             }
         });
-
-
     }
 
-    private void launchActivity(Class CreateNewDog_Activity) {
+    private void launchActivity(Class Main_Activity) {
 
-        Intent intent = new Intent(this, CreateNewDog_Activity);
+        Intent intent = new Intent(this, Main_Activity);
         startActivity(intent);
     }
 
-    private void findViews(){
-        login_BTN_loginregister = findViewById(R.id.login_BTN_loginregister);
+    private void findViews() {
+        createnewdog_BTN_share = findViewById(R.id.createnewdog_BTN_share);
     }
-
-
 }

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="3"
+    tools:context=".CreateNewDog_Activity">
+
+    <RelativeLayout
+        android:id="@+id/createnewdog_LAY_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/colorprimary"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/createnewdog_IMG_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:src="@color/design_default_color_surface"
+
+            />
+
+        // dog name
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/createnewdog_TXT_dogname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/createnewdog_IMG_profile"
+            android:layout_centerVertical="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="What is your dog name? "
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/createnewdog_LAY_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:padding="20dp">
+
+        //walks
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/createnewdog_TXT_walks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="How many daily walks? "
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/login_TXT_tipwalks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="1dp"
+            android:text="The more the merrier"></TextView>
+
+        //meals
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/createnewdog_TXT_meals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="How many daily meals? "
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <TextView
+            android:id="@+id/login_TXT_tipneals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="1dp"
+            android:text="Consult with your vet"></TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/createnewdog_LAY_botton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/createnewdog_BTN_Adddog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity=""
+            android:text="SAVE"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:background="@color/colorsecondary">
+
+        </Button>
+
+
+
+    </LinearLayout>
+
+    </LinearLayout>

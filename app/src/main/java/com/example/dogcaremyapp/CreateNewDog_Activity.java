@@ -9,9 +9,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-public class Login_Activity extends AppCompatActivity {
-
-    private Button login_BTN_loginregister;
+public class CreateNewDog_Activity extends AppCompatActivity {
+    private Button createnewdog_BTN_Adddog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,29 +22,25 @@ public class Login_Activity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
 
-        setContentView(R.layout.login_activity);
+        setContentView(R.layout.createnewdog_activity);
 
         findViews();
-
-        login_BTN_loginregister.setOnClickListener(new View.OnClickListener() {
+        createnewdog_BTN_Adddog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                launchActivity(CreateNewDog_Activity.class);
+                launchActivity(Main_Activity.class);
             }
         });
 
 
     }
+    private void launchActivity(Class Main_Activity) {
 
-    private void launchActivity(Class CreateNewDog_Activity) {
-
-        Intent intent = new Intent(this, CreateNewDog_Activity);
+        Intent intent = new Intent(this, Main_Activity);
         startActivity(intent);
     }
 
     private void findViews(){
-        login_BTN_loginregister = findViewById(R.id.login_BTN_loginregister);
+        createnewdog_BTN_Adddog = findViewById(R.id.createnewdog_BTN_Adddog);
     }
-
-
 }
