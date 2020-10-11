@@ -1,26 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_LAY_relativWrapper"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:id="@+id/login_LAY_logout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.1"
+        android:background="@color/colorprimarydark"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/main_BTN_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="@color/colorprimarydark"
+            android:text="LOG OUT"
+            android:textColor="@color/colorsecondary"
+            android:textSize="18dp"
+
+            />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/main_LAY_top1title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:background="@color/colorprimarydark">
+        android:background="@color/colorprimarydark"
+        android:orientation="vertical">
 
 
         <ImageView
             android:id="@+id/main_IMG_titlepaw"
-            android:src="@drawable/img_icon_pow"
-            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_width="wrap_content" />
+            android:layout_gravity="center"
+            android:src="@drawable/img_icon_pow" />
 
     </LinearLayout>
 
@@ -29,11 +53,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical"
         android:background="@color/colorprimary"
-        >
-
-
+        android:orientation="vertical">
 
 
     </LinearLayout>
@@ -49,54 +70,54 @@
 
     </LinearLayout>
 
+
     <LinearLayout
         android:id="@+id/login_LAY_linearlbuttos"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal"
-        android:background="@color/colorprimarylight">
+        android:background="@color/colorprimarylight"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/main_BTN_left"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_gravity="left"
+            android:layout_weight="1"
+            android:background="@color/colorsecondary"
             android:text="Delete dog"
             android:textColor="#ffffff "
-            android:textSize="18dp"
-            android:background="@color/colorsecondary"
-             />
+            android:textSize="18dp" />
 
         <Button
             android:id="@+id/main_BTN_center"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/colorsecondary"
             android:text="Add new dog"
             android:textColor="#ffffff "
-            android:textSize="18dp"
-            android:background="@color/colorsecondary"
-             />
+            android:textSize="18dp" />
 
         <Button
             android:id="@+id/main_BTN_right"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="@color/colorsecondary"
             android:text="Share dog"
             android:textColor="#ffffff "
             android:textSize="18dp"
-            android:background="@color/colorsecondary"
 
-             />
-
+            />
 
 
     </LinearLayout>
+
+
 
 
 </LinearLayout>

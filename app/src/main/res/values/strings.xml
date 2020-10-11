@@ -3,5 +3,6 @@
     <string name="title_my_app">"dogcare"</string>
     <string name="title_my_phoneLogin">"התחברות עם הנייד לדוג 0501234567"</string>
     <string name="title_button_register">"עוד לא נרשמתם? לחצו להרשמה"</string>
+    <string name="error">only numbers please</string>
 
 </resources>

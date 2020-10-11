@@ -9,11 +9,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Main_Activity extends AppCompatActivity {
 
     private Button main_BTN_left;
     private Button main_BTN_center;
     private Button main_BTN_right;
+    private Button main_BTN_logout;
+
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -26,6 +31,8 @@ public class Main_Activity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
 
+        mAuth = FirebaseAuth.getInstance();
+
         setContentView(R.layout.main_activity);
 
         findViews();
@@ -33,37 +40,39 @@ public class Main_Activity extends AppCompatActivity {
         main_BTN_center.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                launchActivity1(CreateNewDog_Activity.class);
+                launchActivity(CreateNewDog_Activity.class);
             }
         });
 
         main_BTN_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                launchActivity2(Share_Activity.class);
+                launchActivity(Share_Activity.class);
+            }
+        });
+
+        main_BTN_logout.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                //TODO - go to login screen
             }
         });
     }
 
-    //from add new dog button to CreateNewDog_Activity
-    private void launchActivity1(Class CreateNewDog_Activity) {
+    //from button to Activity
+    private void launchActivity(Class Activity) {
 
-        Intent intent = new Intent(this, CreateNewDog_Activity);
+        Intent intent = new Intent(this, Activity);
         startActivity(intent);
     }
-
-    //from share button to CreateNewDog_Activity
-    private void launchActivity2(Class Share_Activity) {
-
-        Intent intent = new Intent(this, Share_Activity);
-        startActivity(intent);
-    }
-
 
 
     private void findViews(){
         main_BTN_left = findViewById(R.id.main_BTN_left);
         main_BTN_center = findViewById(R.id.main_BTN_center);
         main_BTN_right = findViewById(R.id.main_BTN_right);
+        main_BTN_logout = findViewById(R.id.main_BTN_logout);
     }
 }

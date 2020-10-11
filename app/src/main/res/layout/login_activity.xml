@@ -64,7 +64,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="example 0501234567"
-                    android:inputType="phone" />
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:inputType="phone"
+                    app:errorEnabled="true"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

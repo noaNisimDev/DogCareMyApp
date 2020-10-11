@@ -28,6 +28,8 @@ public class CreateNewDog_Activity extends AppCompatActivity {
         createnewdog_BTN_Adddog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO - 3 create new dog
+                //TODO - 4 add dog to firebase
                 launchActivity(Main_Activity.class);
             }
         });
