@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.dogcaremyapp">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -8,19 +10,30 @@
         android:label="@string/title_my_app"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".CreateNewDog_Activity">
-<!--                   android:configChanges="orientation|keyboardHidden|screenSize"-->
-<!--                   android:screenOrientation="sensorLandscape">-->
+        android:theme="@style/AppTheme"
 
-        </activity>
+        tools:replace="android:icon,android:label">
+        <!-- adMob -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4243140761374436~9923450302" />
 
-        <activity android:name=".Delete_Activity" />
-        <activity android:name=".Share_Activity" />
-        <activity android:name=".Main_Activity" />
-        <activity android:name=".Login_Activity">
-
-
+        <activity
+            android:name=".CreateNewDog_Activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Share_Activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Main_Activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login_Activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

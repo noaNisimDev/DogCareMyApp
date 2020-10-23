@@ -19,6 +19,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseException;
@@ -29,13 +31,21 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Login_Activity extends AppCompatActivity {
 
     private Button login_BTN_loginregister;
     private TextInputLayout login_phone;
+
+    //user
+    private User user;
+    private List<Dog> dogs;
+    private String user_login_phone;
 
 
     //[START Firebase_declare_auth]
@@ -58,6 +68,8 @@ public class Login_Activity extends AppCompatActivity {
     private String verificationCode = "";
     private String israelPrefix = "+972 ";
 
+    private DatabaseReference mDatabase;
+
 
     // [END declare_auth]
 
@@ -70,7 +82,10 @@ public class Login_Activity extends AppCompatActivity {
         getSupportActionBar().hide(); // hide the title bar
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+
         //check if user is already logged in - go to main screen
         if (mAuth.getCurrentUser() != null) {
             launchActivity(Main_Activity.class);
@@ -92,7 +107,6 @@ public class Login_Activity extends AppCompatActivity {
                     //     user action.
                     Log.d(TAG, "onVerificationCompleted:" + credential);
 
-
                     signInWithPhoneAuthCredential(credential);
                 }
 
@@ -105,12 +119,10 @@ public class Login_Activity extends AppCompatActivity {
                     if (e instanceof FirebaseAuthInvalidCredentialsException) {
                         // Invalid request
                         // ...
-                        //TODO - add special error notification (toast/layout)
                         Log.d(TAG, " Invalid request. cannot log in");
                     } else if (e instanceof FirebaseTooManyRequestsException) {
                         // The SMS quota for the project has been exceeded
                         // ...
-                        //TODO - add special error notification (toast/layout)
                         Log.d(TAG, " The SMS quota for the project has been exceeded");
 
                     }
@@ -130,12 +142,12 @@ public class Login_Activity extends AppCompatActivity {
                     mVerificationId = verificationId;
                     mResendToken = token;
                     showVerificationDialog(verificationId);
-                    //TODO - dealing with 60s timeout.. add resend code
                 }
             };
 
 
             findViews();
+
 
             login_BTN_loginregister.setEnabled(false);
             login_BTN_loginregister.setAlpha(0.5f);
@@ -147,11 +159,10 @@ public class Login_Activity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int count, int before, int i) {
-                    if(charSequence.length() == 10 && charSequence.toString().matches("[0-9]+")) {
+                    if (charSequence.length() == 10 && charSequence.toString().matches("[0-9]+")) {
                         login_BTN_loginregister.setEnabled(true);
                         login_BTN_loginregister.setAlpha(1);
-                    }
-                    else{
+                    } else {
                         login_BTN_loginregister.setEnabled(false);
                         login_BTN_loginregister.setAlpha(0.5f);
                     }
@@ -162,17 +173,7 @@ public class Login_Activity extends AppCompatActivity {
 
                 }
             });
-           /* //disable login button until check login phone
-            //TODO 2
-            String phoneNumber = login_phone.getEditText().getText().toString();
-            login_BTN_loginregister.setEnabled(false);
-            login_BTN_loginregister.setAlpha(.5f);
 
-            while (phoneNumber.length() == 10 && phoneNumber.matches("[0-9]")) {
-                login_BTN_loginregister.setEnabled(true);
-                login_BTN_loginregister.setAlpha(1f);
-            }
-*/
 
             login_BTN_loginregister.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -191,6 +192,8 @@ public class Login_Activity extends AppCompatActivity {
                             TimeUnit.SECONDS,   // Unit of timeout
                             Login_Activity.this,               // Activity (for callback binding)
                             mCallbacks);        // OnVerificationStateChangedCallbacks
+
+                    User user = new User(user_login_phone);
                 }
             });
         }
@@ -222,6 +225,7 @@ public class Login_Activity extends AppCompatActivity {
             }
         });
 
+        builder.setCancelable(false);
         builder.show();
     }
 
@@ -242,9 +246,25 @@ public class Login_Activity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-                            FirebaseUser user = task.getResult().getUser();
-                            //TODO - 1 create new user
-                            //TODO - 2 save to firebase
+                            FirebaseUser firebaseUser = task.getResult().getUser();
+                            //save to firebase
+                            mDatabase.child("users").child(firebaseUser.getUid()).child("phoneNumber").setValue(firebaseUser.getPhoneNumber()).
+                                    addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            // Write was successful!
+                                            // ...
+                                            Log.d("database", "success!!!! ");
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.d("database", "failed!! " + e.getMessage());
+                                        }
+                                    });
+                            ;
+
                             launchActivity(CreateNewDog_Activity.class);
 
 

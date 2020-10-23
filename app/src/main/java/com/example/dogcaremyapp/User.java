@@ -1,38 +1,36 @@
 package com.example.dogcaremyapp;
 
-import com.google.android.material.textfield.TextInputLayout;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class User {
 
-    private List<Dog> dogs;
-    private TextInputLayout user_login_phone;
+    private List<String> dogs;
+    private String user_login_phone;
 
-    public User(List<Dog> user_dog, TextInputLayout user_login_phone) {
+    public User(List<String> user_dog, String user_login_phone) {
         this.dogs = user_dog;
         this.user_login_phone = user_login_phone;
     }
 
-    public User(TextInputLayout user_login_phone) {
-        this.dogs = new ArrayList<>();
+    public User(String user_login_phone) {
+        this.dogs = new ArrayList<String>();
         this.user_login_phone = user_login_phone;
     }
 
-    public List<Dog> getDogs() {
+    public List<String> getDogs() {
         return dogs;
     }
 
-    public void setDogs(List<Dog> dogs) {
+    public void setDogs(List<String> dogs) {
         this.dogs = dogs;
     }
 
-    public TextInputLayout getUser_login_phone() {
+    public String getUser_login_phone() {
         return user_login_phone;
     }
 
-    public void setUser_login_phone(TextInputLayout user_login_phone) {
+    public void setUser_login_phone(String user_login_phone) {
         this.user_login_phone = user_login_phone;
     }
 }

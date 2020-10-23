@@ -1,8 +1,9 @@
 package com.example.dogcaremyapp;
 
-import android.media.Image;
-
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 public class Dog {
@@ -11,54 +12,74 @@ public class Dog {
     private String name;
     private int numOfWalksPerDay;
     private int numOfMealsPerDay;
-    private Date[] todayWalks;
-    private Date[] todayMeals;
-    private Image image;
+    private List<Walk> todayWalks;
+    private List<Meal> todayMeals;
+    private String imageUri;
 
     //to use from firebase
-    public Dog(String name, int numOfWalksPerDay, int numOfMealsPerDay, Date[] todayWalks, Date[] todayMeals, Image image, String id) {
+    public Dog(String name, int numOfWalksPerDay, int numOfMealsPerDay, List<Walk> todayWalks, List<Meal> todayMeals, String imageUri, String id) {
         this.id = id;
         this.name = name;
         this.numOfWalksPerDay = numOfWalksPerDay;
         this.numOfMealsPerDay = numOfMealsPerDay;
         this.todayWalks = todayWalks;
         this.todayMeals = todayMeals;
-        this.image = image;
+        this.imageUri = imageUri;
     }
 
     //new dog
-    public Dog(String name, int numOfWalksPerDay, int numOfMealsPerDay, Image image) {
+    public Dog(String name, int numOfWalksPerDay, int numOfMealsPerDay, String imageUri) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
         this.numOfWalksPerDay = numOfWalksPerDay;
         this.numOfMealsPerDay = numOfMealsPerDay;
-        this.todayWalks = new Date[numOfWalksPerDay];
-        this.todayMeals = new Date[numOfMealsPerDay];
-        this.image = image;
+        this.todayWalks = new ArrayList<Walk>(numOfWalksPerDay);
+        this.todayMeals = new ArrayList<Meal>(numOfMealsPerDay);
+        this.imageUri = imageUri;
+
+        Date zeroDate = new Date(0);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-dd-MM");
+        final String zeroString = formatter.format(zeroDate);
+
+        for (int i = 0; i < numOfWalksPerDay; i++) {
+            todayWalks.add(new Walk(zeroString));
+        }
+        for (int i = 0; i < numOfMealsPerDay; i++) {
+            todayMeals.add(new Meal(zeroString));
+        }
     }
 
-    public Date[] getTodayWalks() {
+    public Dog() {
+
+    }
+
+    public String getId() {
+        return id;
+    }
+
+
+    public List<Walk> getTodayWalks() {
         return todayWalks;
     }
 
-    public void setTodayWalks(Date[] todayWalks) {
+    public void setTodayWalks(List<Walk> todayWalks) {
         this.todayWalks = todayWalks;
     }
 
-    public Date[] getTodayMeals() {
+    public List<Meal> getTodayMeals() {
         return todayMeals;
     }
 
-    public void setTodayMeals(Date[] todayMeals) {
+    public void setTodayMeals(List<Meal> todayMeals) {
         this.todayMeals = todayMeals;
     }
 
-    public Image getImage() {
-        return image;
+    public String getImageUri() {
+        return imageUri;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 
     public String getName() {

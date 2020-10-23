@@ -14,5 +14,13 @@
     <color name="colorsecondarylight">#484848</color>
     <color name="colorsecondarydark">#000000</color>
 
+    //5 colors palette
+    <color name="color1">#060D18</color>
+    <color name="color2">#6D767E</color>
+    <color name="color3">#D6DADD</color>
+    <color name="color4">#7A8A8D</color>
+    <color name="color5">#303536</color>
+
+
 
 </resources>

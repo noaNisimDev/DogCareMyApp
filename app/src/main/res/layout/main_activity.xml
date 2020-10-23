@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1.1"
-        android:background="@color/colorprimarydark"
+        android:background="@color/color4"
         android:orientation="vertical">
 
         <Button
@@ -20,12 +20,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="left"
-            android:background="@color/colorprimarydark"
+            android:background="@color/color4"
             android:text="LOG OUT"
             android:textColor="@color/colorsecondary"
-            android:textSize="18dp"
-
-            />
+            android:textSize="18dp" />
 
     </LinearLayout>
 
@@ -35,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/colorprimarydark"
+        android:background="@color/color4"
         android:orientation="vertical">
 
 
@@ -48,35 +46,49 @@
 
     </LinearLayout>
 
+
     <LinearLayout
         android:id="@+id/login_LAY_linearlistdogs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/colorprimary"
-        android:orientation="vertical">
-
+        android:background="@color/color3"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/login_LAY_linearbody"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.5"
-        android:background="@color/colorprimarylight"
-        android:orientation="vertical">
+        android:background="@color/color2"
+        android:orientation="vertical"
+        android:weightSum="100">
 
+        <TableLayout
+            android:id="@+id/main_TBL_dogdetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="99"></TableLayout>
 
+        <TextView
+            android:id="@+id/main_TXT_dogname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="22dp"></TextView>
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/login_LAY_linearlbuttos"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/colorprimarylight"
+        android:background="@color/color1"
         android:orientation="horizontal">
 
         <Button
@@ -85,7 +97,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="left"
             android:layout_weight="1"
-            android:background="@color/colorsecondary"
+            android:background="@color/color1"
             android:text="Delete dog"
             android:textColor="#ffffff "
             android:textSize="18dp" />
@@ -96,7 +108,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@color/colorsecondary"
+            android:background="@color/color1"
             android:text="Add new dog"
             android:textColor="#ffffff "
             android:textSize="18dp" />
@@ -107,7 +119,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="right"
             android:layout_weight="1"
-            android:background="@color/colorsecondary"
+            android:background="@color/color1"
             android:text="Share dog"
             android:textColor="#ffffff "
             android:textSize="18dp"
@@ -116,8 +128,6 @@
 
 
     </LinearLayout>
-
-
 
 
 </LinearLayout>
